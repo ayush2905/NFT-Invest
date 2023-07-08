@@ -108,7 +108,7 @@ contract NFTStaking is Ownable, IERC721Receiver {
       require(staked.owner == account, "not an owner");
 
       uint256 stakedAt = staked.timestamp; // finding out the exact time at which the user had staked an NFT
-      // calculating the reward for each NFT that the user holds
+      // formula for calculating the reward for each NFT that the user holds
       earned += 100 ether * ((block.timestamp - stakedAt)^2) / 1 days;
       vault[tokenId] = Stake({
         owner: account,
