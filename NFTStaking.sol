@@ -50,7 +50,7 @@ contract NFTStaking is Ownable, IERC721Receiver {
     totalStaked += tokenIds.length; // number of NFT's staked
     for (uint i = 0; i < tokenIds.length; i++) {
       tokenId = tokenIds[i]; // requiring individual tokenId's to start issuing rewards per token
-      require(nft.ownerOf(tokenId) == msg.sender, "not your token");
+      require(nft.ownerOf(tokenId) == msg.sender, "not your token"); //ownerOf function imported from ERC721
       require(vault[tokenId].tokenId == 0, "already staked");
 
       // this is transferring the NFT to the vault that we have created
